@@ -1,3 +1,4 @@
+import { message } from 'antd';
 import React, { useEffect, useState } from 'react';
 import UserInput from '../components/UserInput';
 import UserList from '../components/UserList';
@@ -24,13 +25,13 @@ const LandingPage: React.FC = () => {
           });
           setUsers(updatedUsers);
           localStorage.setItem('users', JSON.stringify(updatedUsers));
-          alert('User details have been updated');
+          message.success('User details have been updated');
         } else {
           console.log(user,"user");
           const updatedUsers = [...users, user];
           setUsers(updatedUsers);
           localStorage.setItem('users', JSON.stringify(updatedUsers));
-          alert('User details have been saved');
+          message.success('User details have been saved');
         }
       };
   
