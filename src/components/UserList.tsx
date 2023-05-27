@@ -1,5 +1,5 @@
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import { Card } from "antd";
+import { Card, Popconfirm } from "antd";
 import React, { useState } from "react";
 
 interface User {
@@ -35,7 +35,17 @@ const UserList: React.FC<UserListProps> = ({
                 <div>{user.name}</div>
                 <div>{user.email}</div>
                 <EditOutlined onClick={() => onEditUser(user)}/>
-                <DeleteOutlined onClick={() => onDeleteUser(user)} style={{color:"red"}}/>
+                <Popconfirm 
+                title="Delete the task"
+                description="Are you sure you want to delete this user?"
+                // onConfirm={confirm}
+                // onCancel={cancel}
+                onConfirm={()=> onDeleteUser(user)}
+                okText="Yes"
+                cancelText="No"
+                >
+                <DeleteOutlined style={{color:"red"}}/>
+                </Popconfirm>
               </Card>
           ))}
         {displayCount - 3 >= 0 && (

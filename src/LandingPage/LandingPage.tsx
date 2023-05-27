@@ -40,11 +40,10 @@ const LandingPage: React.FC = () => {
     };
   
     const handleDeleteUser = (userToDelete: User) => {
-      if (window.confirm('Are you sure you want to delete this user?')) {
         const updatedUsers = users.filter((user) => user.id !== userToDelete.id);
         setUsers(updatedUsers);
         localStorage.setItem('users', JSON.stringify(updatedUsers));
-      }
+      
     };
 
 
